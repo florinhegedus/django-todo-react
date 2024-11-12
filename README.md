@@ -18,10 +18,11 @@ Make migrations
 python manage.py migrate
 ```
 ### Frontend
-You have to have node installed. Inside frontend directory run:
+You have to have node installed. Inside frontend directory:
 ```
 npm install
 ```
+And run the frontend app using:
 ```
 npm start
 ```
