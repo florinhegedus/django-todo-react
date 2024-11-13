@@ -26,3 +26,5 @@ And run the frontend app using:
 ```
 npm start
 ```
+
+## Deploy
