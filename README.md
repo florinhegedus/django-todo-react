@@ -28,3 +28,4 @@ npm start
 ```
 
 ## Deploy
+Next, the app is deployed on DigitalOcean.
