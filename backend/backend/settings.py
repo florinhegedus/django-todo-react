@@ -10,23 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Check if in development environment
+ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
+if ENVIRONMENT == "development":
+    from dotenv import load_dotenv
+    load_dotenv()
+    print("development")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$m8@c@h+!3@+(+nmc!xw5nr3d&$z1^u)4kvu^l6nh&^3-lxuzc'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECURITY WARNING: don't run with debug turned on in production!D
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOST'), 'localhost']
 
 # Application definition
 
@@ -77,13 +84,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+if DEBUG:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DB_HOST_EXTERNAL')
+    )
 }
-
+else:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DB_HOST_INTERNAL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
