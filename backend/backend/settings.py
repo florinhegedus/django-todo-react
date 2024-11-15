@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 FRONTEND_URL = os.getenv('ALLOWED_HOST')
-ALLOWED_HOSTS = [FRONTEND_URL, 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [FRONTEND_URL, 'localhost', '127.0.0.1', '*']
 
 # Application definition
 
