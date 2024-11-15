@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "./components/Modal";
-import axios from "axios";
+import api from "./api/api"
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   refreshList = () => {
-    axios
+    api
       .get("/api/todos/")
       .then((res) => this.setState({ todoList: res.data }))
       .catch((err) => console.log(err));
@@ -36,18 +36,18 @@ class App extends Component {
     this.toggle();
 
     if (item.id) {
-      axios
+      api
         .put(`/api/todos/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
-    axios
+    api
       .post("/api/todos/", item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
-    axios
+    api
       .delete(`/api/todos/${item.id}/`)
       .then((res) => this.refreshList());
   };
