@@ -139,7 +139,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = False  # only set True to check problem is not from cors
+CORS_ALLOW_ALL_ORIGINS = True  # only set True to check problem is not from cors
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
