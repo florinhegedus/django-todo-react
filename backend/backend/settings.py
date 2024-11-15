@@ -33,7 +33,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!D
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = [os.getenv('ALLOWED_HOST'), 'localhost', '*']
+FRONTEND_URL = os.getenv('ALLOWED_HOST')
+ALLOWED_HOSTS = [FRONTEND_URL, 'localhost']
 
 # Application definition
 
@@ -138,8 +139,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = True  # just checking the frontend
+CORS_ALLOW_ALL_ORIGINS = False  # only set True to check problem is not from cors
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    FRONTEND_URL,
 ]
