@@ -35,7 +35,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 FRONTEND_URL = os.getenv('FRONTEND_URL')
 BACKEND_URL = os.getenv('BACKEND_URL')
-ALLOWED_HOSTS = [FRONTEND_URL, BACKEND_URL, 'localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['https://django-todo-react.onrender.com', 'http://localhost:3000']
 
 # Application definition
 
@@ -142,8 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = False  # only set True to check problem is not from cors
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    FRONTEND_URL,
-    BACKEND_URL,
+CORS_ALLOWED_ORIGINS = [
+    'https://django-todo-react.onrender.com',
+    'http://localhost:3000'
 ]
