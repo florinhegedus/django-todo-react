@@ -38,7 +38,7 @@ BACKEND_URL = os.getenv('BACKEND_URL')
 ALLOWED_HOSTS = [
     'localhost',  # For local development
     '127.0.0.1',  # Local development IP
-    'django-todo-restapi.onrender.com',  # Your backend's deployed domain
+    # 'django-todo-restapi.onrender.com',  # Your backend's deployed domain
     'django-todo-react.onrender.com',  # Your frontend's deployed domain
 ]
 
