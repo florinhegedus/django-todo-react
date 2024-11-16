@@ -33,8 +33,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!D
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-FRONTEND_URL = os.getenv('ALLOWED_HOST')
-ALLOWED_HOSTS = [FRONTEND_URL, 'localhost', '127.0.0.1']
+FRONTEND_URL = os.getenv('FRONTEND_URL')
+BACKEND_URL = os.getenv('BACKEND_URL')
+ALLOWED_HOSTS = [FRONTEND_URL, BACKEND_URL, 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -144,4 +145,5 @@ CORS_ALLOW_ALL_ORIGINS = False  # only set True to check problem is not from cor
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     FRONTEND_URL,
+    BACKEND_URL,
 ]
