@@ -33,8 +33,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!D
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-FRONTEND_URL = os.getenv('FRONTEND_URL')
-BACKEND_URL = os.getenv('BACKEND_URL')
 ALLOWED_HOSTS = [
     'localhost',  # local dev
     '127.0.0.1',  # local dev
