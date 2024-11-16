@@ -35,7 +35,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 FRONTEND_URL = os.getenv('FRONTEND_URL')
 BACKEND_URL = os.getenv('BACKEND_URL')
-ALLOWED_HOSTS = ['https://django-todo-react.onrender.com', 'http://localhost:3000']
+ALLOWED_HOSTS = ['django-todo-react.onrender.com', 'localhost']
 
 # Application definition
 
